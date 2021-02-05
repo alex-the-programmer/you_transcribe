@@ -3,6 +3,7 @@ class CreateVideos < ActiveRecord::Migration[6.1]
     create_table :videos do |t|
       t.belongs_to :channel
       t.string :name, null: false, index: true
+      t.string :url, null: false
       t.string :slug, null: false
       t.string :transcription
       t.string :recorded_at, null: false
@@ -10,5 +11,7 @@ class CreateVideos < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    add_foreign_key :videos, :channels
   end
 end

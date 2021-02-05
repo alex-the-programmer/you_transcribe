@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_02_05_054135) do
   create_table "videos", force: :cascade do |t|
     t.integer "channel_id"
     t.string "name", null: false
+    t.string "url", null: false
     t.string "slug", null: false
     t.string "transcription"
     t.string "recorded_at", null: false
@@ -37,4 +38,5 @@ ActiveRecord::Schema.define(version: 2021_02_05_054135) do
     t.index ["status"], name: "index_videos_on_status"
   end
 
+  add_foreign_key "videos", "channels"
 end
