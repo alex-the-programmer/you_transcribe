@@ -16,11 +16,7 @@
 #  index_channels_on_name          (name)
 #
 class Channel  < ApplicationRecord
-    validate_presence_of :channel_type, :logo_url, :name, :slug
+    validates_presence_of :channel_type, :logo_url, :name, :slug
 
     has_many :videos
-
-    before_save do 
-        slug = name.parametrize
-    end
 end

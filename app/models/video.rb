@@ -24,15 +24,13 @@
 #  channel_id  (channel_id => channels.id)
 #
 class Video < ApplicationRecord
-    validate_presence_of :name, :recorded_at, :slug, :status, :url
+    validates_presence_of :name, :recorded_at, :slug, :status, :url
     belongs_to :channel
 
 
-    enum :status, {
+    enum status: {
         entered: 'entered'
     }
 
-    before_save do 
-        slug = name.parametrize
-    end
+    before_validation :set_slug
 end

@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
     def show
         @video = Video
-            .include(:channel)
+            .includes(:channel)
             .where(channels: { slug: params[:channel_id]})
             .find_by!(slug: params[:id])
     end
