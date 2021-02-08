@@ -44,3 +44,4 @@
 yarn-debug.log*
 .yarn-integrity
 app/.env.local
+/downloaded_videos
