@@ -31,6 +31,4 @@ class Video < ApplicationRecord
     enum status: {
         entered: 'entered'
     }
-
-    before_validation :set_slug
 end
