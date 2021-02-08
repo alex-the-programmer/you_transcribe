@@ -29,6 +29,8 @@ class Video < ApplicationRecord
 
 
     enum status: {
-        entered: 'entered'
+        entered: 'entered',
+        download_started: 'download_started',
+        download_completed: 'download_completed'
     }
 end
