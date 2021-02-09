@@ -2,4 +2,4 @@
 <iframe width="560" height="315" src="<%= @video.embed_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p><%= @video.name %></p>
 <p><%= @video.slug %></p>
-<p><%= @video.transcription %></p>
+<p><%= raw @video.transcription %></p>

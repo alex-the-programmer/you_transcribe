@@ -31,7 +31,8 @@ class Video < ApplicationRecord
     enum status: {
         entered: 'entered',
         download_started: 'download_started',
-        download_completed: 'download_completed'
+        download_completed: 'download_completed',
+        download_error: 'download_error'
     }
 
     def watch_url
