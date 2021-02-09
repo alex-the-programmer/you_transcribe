@@ -2,16 +2,16 @@
 #
 # Table name: videos
 #
-#  id            :integer          not null, primary key
+#  id            :bigint           not null, primary key
 #  name          :string           not null
 #  recorded_at   :string           not null
 #  slug          :string           not null
 #  status        :string           default("entered"), not null
 #  transcription :string
-#  url           :string           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  channel_id    :integer
+#  youtube_id    :string           not null
 #
 # Indexes
 #
@@ -21,10 +21,10 @@
 #
 # Foreign Keys
 #
-#  channel_id  (channel_id => channels.id)
+#  fk_rails_...  (channel_id => channels.id)
 #
 class Video < ApplicationRecord
-    validates_presence_of :name, :recorded_at, :slug, :status, :url
+    validates_presence_of :name, :recorded_at, :slug, :status, :youtube_id
     belongs_to :channel
 
 
@@ -33,4 +33,12 @@ class Video < ApplicationRecord
         download_started: 'download_started',
         download_completed: 'download_completed'
     }
+
+    def watch_url
+        "https://www.youtube.com/watch?v=#{youtube_id}"
+    end
+
+    def embed_url
+        "https://www.youtube.com/embed/#{youtube_id}"
+    end
 end

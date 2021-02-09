@@ -2,7 +2,7 @@
 #
 # Table name: channels
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  channel_type :string           not null
 #  logo_url     :string           not null
 #  name         :string           not null

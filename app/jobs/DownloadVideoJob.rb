@@ -5,7 +5,8 @@ class DownloadVideoJob
         video = Video.find(id)
         video.download_started!
 
-        command = "youtube-dl '#{video.url}'"
+        command = "youtube-dl --id --write-auto-sub '#{video.url}'" # consider -o for output tempate, trying annotations , subtitles
+        # later --extract-audio to extract audio only 
         `command`
 
         video.download_completed!
