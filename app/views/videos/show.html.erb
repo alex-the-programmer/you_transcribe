@@ -11,6 +11,10 @@
     <iframe width="560" height="315" src="<%= @video.embed_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <h2 class="video-name"><%= @video.name %></h2>
     <div class="transcription">
-        <p <%= raw @video.transcription %></p>
+        <div>
+            <% @video.transcription.each do |transcription_line| %>
+                <p> <%= transcription_line['text'] %></p>
+            <%end%>
+        </div>
     </div>
 </div>
