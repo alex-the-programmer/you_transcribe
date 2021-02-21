@@ -7,7 +7,7 @@
 #  recorded_at   :string
 #  slug          :string           not null
 #  status        :string           default("entered"), not null
-#  transcription :string
+#  transcription :jsonb
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  channel_id    :integer
@@ -32,7 +32,9 @@ class Video < ApplicationRecord
         entered: 'entered',
         download_started: 'download_started',
         download_completed: 'download_completed',
-        download_error: 'download_error'
+        download_error: 'download_error',
+        no_transcript: 'no_transcript',
+        transcription_scraped: 'transcription_scraped'
     }
 
     def watch_url

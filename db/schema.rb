@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_065731) do
+ActiveRecord::Schema.define(version: 2021_02_21_082610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 2021_02_21_065731) do
     t.string "name", null: false
     t.string "youtube_id", null: false
     t.string "slug", null: false
-    t.string "transcription"
     t.string "recorded_at"
     t.string "status", default: "entered", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "transcription"
     t.index ["channel_id"], name: "index_videos_on_channel_id"
     t.index ["name"], name: "index_videos_on_name"
     t.index ["status"], name: "index_videos_on_status"
