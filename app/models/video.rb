@@ -4,7 +4,7 @@
 #
 #  id            :bigint           not null, primary key
 #  name          :string           not null
-#  recorded_at   :string           not null
+#  recorded_at   :string
 #  slug          :string           not null
 #  status        :string           default("entered"), not null
 #  transcription :string
@@ -24,7 +24,7 @@
 #  fk_rails_...  (channel_id => channels.id)
 #
 class Video < ApplicationRecord
-    validates_presence_of :name, :recorded_at, :slug, :status, :youtube_id
+    validates_presence_of :name, :slug, :status, :youtube_id
     belongs_to :channel
 
 

@@ -280,7 +280,7 @@ DEPENDENCIES
   rails (~> 6.1.1)
   rails_admin (~> 2.0)
   sass-rails (>= 6)
-  selenium-webdriver
+  selenium-webdriver (~> 3.142, >= 3.142.7)
   sidekiq
   spring
   turbolinks (~> 5)
