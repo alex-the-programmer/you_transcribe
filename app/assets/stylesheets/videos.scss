@@ -7,7 +7,7 @@
     text-align: center;
     
     .channel{
-        background-color: #8080809e;
+        background-color: #80808021;
         display: flex;
         flex-flow: row;
         margin-bottom: 25px;
@@ -23,6 +23,10 @@
         h1{
             margin-left: 20px;
         }
+    }
+
+    .video-name{
+        color: #6eb9fb;
     }
 
     .transcription{

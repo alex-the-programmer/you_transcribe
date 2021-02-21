@@ -1,15 +1,15 @@
 <div class="page">
     <div class="channel">
-        <div>
-            <%= image_tag '/assets/youtube_logo.jpg', class: 'logo-image' %>
-        </div>
         <div> 
             <img src=<%= @video.channel.logo_url %> alt="Channel Logo URL" class="channel-logo" >
         </div>
-        <h1><%= @video.channel.name %> </h1>
+        <h1><%= link_to @video.channel.name, @video.channel.url %> </h1>
+        <%# <div>
+            <input placeholder="Search on the channel...">
+        </div> %>
     </div>
     <iframe width="560" height="315" src="<%= @video.embed_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <h2><%= @video.name %></h2>
+    <h2 class="video-name"><%= @video.name %></h2>
     <div class="transcription">
         <p <%= raw @video.transcription %></p>
     </div>
