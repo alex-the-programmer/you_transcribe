@@ -15,7 +15,12 @@
     <div class="transcription">
         <div>
             <% @video.transcription.each do |transcription_line| %>
-                <p> <%= transcription_line['text'] %></p>
+                <p> 
+                    <span>
+                        <%= transcription_line['offset'] %>
+                    </span>
+                    <%= transcription_line['text'] %>
+                </p>
             <%end%>
         </div>
     </div>
