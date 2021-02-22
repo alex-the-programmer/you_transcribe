@@ -10,7 +10,7 @@
 #  transcription :jsonb
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  channel_id    :bigint
+#  channel_id    :integer
 #  youtube_id    :string           not null
 #
 # Indexes

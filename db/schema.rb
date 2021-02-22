@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_082610) do
+ActiveRecord::Schema.define(version: 2021_02_22_060703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,17 +18,27 @@ ActiveRecord::Schema.define(version: 2021_02_21_082610) do
   create_table "channels", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
-    t.string "logo_url", null: false
+    t.string "logo_url"
     t.string "channel_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "url"
+    t.integer "topic_id"
     t.index ["channel_type"], name: "index_channels_on_channel_type"
     t.index ["name"], name: "index_channels_on_name"
   end
 
+  create_table "topics", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "status", default: "entered", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "topic_type"
+    t.index ["status"], name: "index_topics_on_status"
+  end
+
   create_table "videos", force: :cascade do |t|
-    t.bigint "channel_id"
+    t.integer "channel_id"
     t.string "name", null: false
     t.string "youtube_id", null: false
     t.string "slug", null: false
@@ -42,5 +52,6 @@ ActiveRecord::Schema.define(version: 2021_02_21_082610) do
     t.index ["status"], name: "index_videos_on_status"
   end
 
+  add_foreign_key "channels", "topics"
   add_foreign_key "videos", "channels"
 end
