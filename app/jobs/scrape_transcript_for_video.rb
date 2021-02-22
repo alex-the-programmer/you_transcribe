@@ -8,7 +8,12 @@ class ScrapeTranscriptForVideo
         driver.navigate.to "https://www.youtube.com/watch?v=#{video.youtube_id}"
         sleep(5)
         driver.find_element(:css, 'button[aria-label="More actions"]').click
-        open_transcript_link = driver.find_element(:xpath, '//yt-formatted-string[text()="Open transcript"]')
+        open_transcript_link = nil
+        begin
+            open_transcript_link = driver.find_element(:xpath, '//yt-formatted-string[text()="Open transcript"]')
+        rescue => exception
+            video.update!(status: :no_transcript)
+        end 
         if open_transcript_link
             open_transcript_link.click
             sleep(5)

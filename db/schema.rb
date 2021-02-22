@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_082610) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.integer "channel_id"
+    t.bigint "channel_id"
     t.string "name", null: false
     t.string "youtube_id", null: false
     t.string "slug", null: false
