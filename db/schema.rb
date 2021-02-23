@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_060703) do
+ActiveRecord::Schema.define(version: 2021_02_23_062236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_060703) do
     t.integer "topic_id"
     t.index ["channel_type"], name: "index_channels_on_channel_type"
     t.index ["name"], name: "index_channels_on_name"
+    t.index ["url"], name: "index_channels_on_url", unique: true
   end
 
   create_table "topics", force: :cascade do |t|
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_060703) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.integer "channel_id"
+    t.bigint "channel_id"
     t.string "name", null: false
     t.string "youtube_id", null: false
     t.string "slug", null: false
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_060703) do
     t.index ["channel_id"], name: "index_videos_on_channel_id"
     t.index ["name"], name: "index_videos_on_name"
     t.index ["status"], name: "index_videos_on_status"
+    t.index ["youtube_id"], name: "index_videos_on_youtube_id", unique: true
   end
 
   add_foreign_key "channels", "topics"

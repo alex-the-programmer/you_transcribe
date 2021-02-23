@@ -16,6 +16,7 @@
 #
 #  index_channels_on_channel_type  (channel_type)
 #  index_channels_on_name          (name)
+#  index_channels_on_url           (url) UNIQUE
 #
 # Foreign Keys
 #
@@ -24,6 +25,6 @@
 class Channel  < ApplicationRecord
     validates_presence_of :channel_type, :name, :slug
 
-    has_many :videos
+    has_many :videos, dependent: :destroy
     belongs_to :topic
 end

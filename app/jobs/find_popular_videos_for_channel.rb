@@ -9,12 +9,12 @@ class FindPopularVideosForChannel
 
         # if threre's no channel URL, scrape one
         if channel.logo_url.blank?
-            binding.pry
             channel.update!(logo_url: driver.find_element(:css, '#avatar img[width="80"]')[:src])
         end
         
         # go videos
         driver.find_elements(:css, 'paper-tab[role="tab"]').select{|tab| tab.text == 'VIDEOS'}.first.click
+        sleep(2)
         driver.find_element(:css, 'paper-button[aria-label="Sort by"]').click
         sleep(2)
         driver.find_elements(:css, 'paper-listbox a').select{|item| item.text == 'Most popular'}.first.click

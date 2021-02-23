@@ -10,7 +10,7 @@
 #  transcription :jsonb
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  channel_id    :integer
+#  channel_id    :bigint
 #  youtube_id    :string           not null
 #
 # Indexes
@@ -18,6 +18,7 @@
 #  index_videos_on_channel_id  (channel_id)
 #  index_videos_on_name        (name)
 #  index_videos_on_status      (status)
+#  index_videos_on_youtube_id  (youtube_id) UNIQUE
 #
 # Foreign Keys
 #
