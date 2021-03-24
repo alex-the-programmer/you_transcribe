@@ -32,6 +32,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'sidekiq'
 gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
 gem 'meta-tags'
+gem 'xml-sitemap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
