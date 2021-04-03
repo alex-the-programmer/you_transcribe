@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :channels, only: :none do 
     resources :videos, only: :show
   end
+
+  root 'home#index'
 end
