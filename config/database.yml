@@ -1,14 +1,21 @@
 default: &default
   adapter: postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 15 } %>
   timeout: 5000
-  username: you_transcribe
-  password: you_transcribe
-  host: localhost
+  # comment
+  # username: you_transcribe
+  # password: you_transcribe
+  # host: localhost
+  
 
 development:
   <<: *default
-  database: you_transcribe_development
+  # database: you_transcribe_development
+  database: <%= ENV.fetch("AWS_DATABASE_NAME") %>
+  host: <%= ENV.fetch("AWS_DATBASE_HOST") %>
+  port: <%= ENV.fetch("AWS_DATABASE_PORT") %>
+  username: <%= ENV.fetch("AWS_DATBASE_USERNAME") %>
+  password: <%= ENV.fetch("AWS_DATABASE_PASSWORD") %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -17,6 +24,11 @@ test:
   <<: *default
   database: you_transcribe_test
 
+
 production:
   <<: *default
-  database: you_transcribe_production
+  database: <%= ENV.fetch("AWS_DATABASE_NAME") %>
+  host: <%= ENV.fetch("AWS_DATBASE_HOST") %>
+  port: <%= ENV.fetch("AWS_DATABASE_PORT") %>
+  username: <%= ENV.fetch("AWS_DATBASE_USERNAME") %>
+  password: <%= ENV.fetch("AWS_DATABASE_PASSWORD") %>
