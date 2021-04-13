@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :videos, only: :show
   end
 
-#  root 'home#index'
+  root 'home#index'
 end
