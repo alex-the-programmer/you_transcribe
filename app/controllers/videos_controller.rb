@@ -2,6 +2,7 @@ class VideosController < ApplicationController
     def index
         @videos = Video
             .transcription_scraped
+            .includes(:channel)
             .limit(20)
     end
 

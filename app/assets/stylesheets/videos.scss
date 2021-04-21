@@ -45,31 +45,3 @@
         }
     }
 }
-
-.searchPage{
-    text-align: center;
-
-
-    .videoItem{
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-
-        .videoItemInner{
-            display: flex;
-            justify-content: center;
-            border: 1px solid lightgray;
-            border-radius: 5px;
-        }
-
-        div{
-            margin: 0 20px;
-        }
-
-        .linkContainer{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-    }
-}
