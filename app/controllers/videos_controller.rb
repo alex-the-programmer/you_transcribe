@@ -3,7 +3,7 @@ class VideosController < ApplicationController
         @videos = Video
             .transcription_scraped
             .includes(:channel)
-            .limit(20)
+            .paginate(page: params[:page])
     end
 
     def show
