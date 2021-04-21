@@ -6,9 +6,12 @@
             <img src=<%= @video.channel.logo_url %> alt="Channel Logo URL" class="channel-logo" >
         </div>
         <h1><%= link_to @video.channel.name, @video.channel.url %> </h1>
-        <%# <div>
-            <input placeholder="Search on the channel...">
-        </div> %>
+        <div>
+            <%= form_with url: search_channel_videos_path, method: :get do |f| %>
+                <%= f.text_field :query %>
+                <%= f.submit 'Search' %>
+            <% end %>
+        </div>
     </div>
     <iframe width="560" height="315" src="<%= @video.embed_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <h2 class="video-name"><%= @video.name %></h2>

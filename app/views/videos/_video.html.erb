@@ -1,0 +1,15 @@
+
+<div class="videoItem">
+    <div class="videoItemInner">
+        <div class="linkContainer">
+            <%= link_to video.name, channel_video_path(video.channel.slug, video.slug) %>
+        </div>
+        <div>
+            <% video.transcription[0..5].each do |transcription_line| %>
+                <p><%= transcription_line['text'] %></p>
+            <% end %>
+            <p>...</p>
+        </div>
+    </div>
+    <div class="btn btn-primary">hello</div>
+</div>

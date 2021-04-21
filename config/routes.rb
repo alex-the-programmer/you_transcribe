@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   # mount Sidekiq::Web => "/sidekiq" unless Rails.env.production?
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :channels, only: :none do 
-    resources :videos, only: :show
+    resources :videos, only: [:show, :index] 
   end
 
-#  root 'home#index'
+  resources :videos, only: :index
+
+  root 'home#index'
 end
