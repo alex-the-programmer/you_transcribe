@@ -3,7 +3,11 @@ class VideosController < ApplicationController
         @videos = Video
             .transcription_scraped
             .includes(:channel)
-            .paginate(page: params[:page])
+
+        @videos = @videos
+            .where(channels: { slug: params[:channel_id]}) if params[:channel_id]
+            
+        @videos = @videos.paginate(page: params[:page])
     end
 
     def show
