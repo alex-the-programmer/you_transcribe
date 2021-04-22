@@ -6,6 +6,15 @@ class VideosController < ApplicationController
 
         @videos = @videos
             .where(channels: { slug: params[:channel_id]}) if params[:channel_id]
+
+        if params[:query]
+            # search_terms = params.require(:query).gsub(/[^0-9a-z ]/i, '').split(' ')[0..10]
+            @videos = @videos
+                .where("name ILIKE ?", "%#{params[:query]}%")
+                .or(@videos
+                    .where("transcription->>'title' ILIKE ?", "%#{params[:query]}%")    
+                )
+        end
             
         @videos = @videos.paginate(page: params[:page])
     end
@@ -17,12 +26,4 @@ class VideosController < ApplicationController
             .where(channels: { slug: params.require(:channel_id)})
             .find_by!(slug: params.require(:id))
     end
-
-    # def search
-    #     search_terms = params.require(:query).gsub(/[^0-9a-z ]/i, '').split(' ')[0..10]
-    #     channel = Channel.find_by!(slug: params.require(:channel_id))
-    #     @videos = channel.videos.transcription_scraped.where("name LIKE ?", "%#{params[:query]}%")
-        
-    #     render :index
-    # end
 end

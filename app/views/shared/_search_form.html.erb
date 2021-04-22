@@ -1,0 +1,10 @@
+<%= form_with url: videos_path, method: :get do |f| %>
+    <div class="row">
+        <div class="col-11">
+            <%= f.text_field :query, class: 'form-control', placeholder: 'Search', value: params[:query] %>
+        </div>
+        <div class="col-1">
+            <%= f.submit 'Search', class: 'btn btn-primary' %>
+        </div>
+    </div>
+<% end %>
