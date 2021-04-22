@@ -13,13 +13,20 @@
   </head>
 
   <body>
-    <header class="header">
-     <div>
-        <%= image_tag 'you_transcribe_logo.png', class: 'logo-image' %>
-      </div>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <%= image_tag 'you_transcribe_logo.png', class: 'navbar-brand-image' %>
+      <% end %>
+    </nav>
     <main class="main">
       <%= yield %>
     </main>
+    <footer class="footer p-3 text-center">
+      <%= link_to 'All Videos', videos_path %>
+      <% if @video.present? %>
+       |
+        <%= link_to "All videos on #{@video.channel.name}", channel_videos_path(@video.channel.slug) %>
+      <% end %>
+    </footer>
   </body>
 </html>

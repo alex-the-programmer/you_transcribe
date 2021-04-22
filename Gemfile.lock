@@ -69,9 +69,17 @@ GEM
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
+    autoprefixer-rails (10.2.4.0)
+      execjs
     bindex (0.8.1)
     bootsnap (1.7.1)
       msgpack (~> 1.0)
+    bootstrap (5.0.0.beta2)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.8.6, < 3)
+      sassc-rails (>= 2.0.0)
+    bootswatch (4.3.1)
+      autoprefixer-rails (>= 6.0.3)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.35.3)
@@ -92,6 +100,7 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    execjs (2.7.0)
     ffi (1.14.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -142,6 +151,7 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     pg (1.1.3)
+    popper_js (2.8.6)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -258,6 +268,9 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.0)
+    will_paginate-bootstrap4 (0.2.2)
+      will_paginate (~> 3.0, >= 3.0.0)
     xml-sitemap (1.3.3)
       builder (>= 2.0)
     xpath (3.2.0)
@@ -270,6 +283,8 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootsnap (>= 1.4.4)
+  bootstrap (~> 5.0.0.beta2)
+  bootswatch
   byebug
   capybara (>= 3.26)
   dotenv-rails
@@ -291,10 +306,12 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  will_paginate
+  will_paginate-bootstrap4
   xml-sitemap
 
 RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.1.4
+   2.2.15

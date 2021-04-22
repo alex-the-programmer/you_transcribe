@@ -1,0 +1,28 @@
+// @import "variables";
+@import "bootswatch/cerulean/variables";
+@import "bootstrap";
+@import "bootswatch/cerulean/bootswatch";
+@import "home";
+@import "videos";
+
+// // global
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+  }
+
+// header
+.navbar-brand-image{
+    max-width: 250px;
+}
+
+main{
+    min-height: 87vh;
+}
+
+.footer{
+    background-color: #80808021;
+    min-height: 100px;
+}

@@ -1,0 +1,22 @@
+
+<div class="card p-3 m-3">
+    <div class="row">
+        <div class="col-4">
+            <%= link_to video.channel.url, target: :blank do  %>
+                <%= image_tag video.channel.logo_url %>
+                <p class="mt-2">
+                    <%= video.channel.name %>
+                </p>
+            <% end %>
+        </div>
+        <div class="col-4">
+            <%= link_to video.name, channel_video_path(video.channel.slug, video.slug) %>
+        </div>
+        <div class="col-4">
+            <% video.transcription[0..5].each do |transcription_line| %>
+                <div><%= transcription_line['text'] %></div>
+            <% end %>
+            <p>...</p>
+        </div>
+    </div>
+</div>
