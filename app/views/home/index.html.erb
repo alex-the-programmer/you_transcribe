@@ -1,1 +1,16 @@
-<h1>Powerful search is coming here soon</h1>
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-3 text-center">Find the right video on YouTube by the words from its transcript!</h1>
+        <hr class=my-4">
+        <%= form_with url: videos_path, method: :get do |f| %>
+            <div class="row">
+                <div class="col-11">
+                    <%= f.text_field :query, class: 'form-control', placeholder: 'Search' %>
+                </div>
+                <div class="col-1">
+                    <%= f.submit 'Search', class: 'btn btn-primary' %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
