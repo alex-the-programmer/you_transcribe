@@ -9,19 +9,19 @@
     </div>
     <iframe width="560" height="315" src="<%= @video.embed_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <div class="container mt-2">
+    <div class="container my-2 transcription-container">
         <h2 class="video-name"><%= @video.name %></h2>
         <div class="transcription">
-            <div>
-                <% @video.transcription.each do |transcription_line| %>
-                    <p> 
-                        <span>
-                            <%= transcription_line['offset'] %>
-                        </span>
+            <% @video.transcription.each do |transcription_line| %>
+                <div class="row">
+                    <div class="col-2">
+                        <%= transcription_line['offset'] %>
+                    </div>
+                    <div class="col-10"> 
                         <%= transcription_line['text'] %>
-                    </p>
-                <% end %>
-            </div>
+                    </div>
+                </div>
+             <% end %>
         </div>
     </div>
 </div>
