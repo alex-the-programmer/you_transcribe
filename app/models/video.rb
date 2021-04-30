@@ -35,7 +35,8 @@ class Video < ApplicationRecord
         download_completed: 'download_completed',
         download_error: 'download_error',
         no_transcript: 'no_transcript',
-        transcription_scraped: 'transcription_scraped'
+        transcription_scraped: 'transcription_scraped',
+        transcription_scraped_new: 'transcription_scraped_new'
     }
 
     def watch_url

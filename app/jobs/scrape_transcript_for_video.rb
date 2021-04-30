@@ -24,13 +24,15 @@ class ScrapeTranscriptForVideo
             open_transcript_link.click
             # sleep(5)
 
-            transcript = @@wait.until { @@driver.find_elements(:css, '.cue-group') }.map do |transcript_line|
+            @@wait.until { @@driver.find_elements(:css, '.cue-group').count > 0 }
+
+            transcript = @@driver.find_elements(:css, '.cue-group').map do |transcript_line|
                 {
                     offset: transcript_line.find_element(:css, '.cue-group-start-offset').text,
                     text: transcript_line.find_element(:css, '.cues .cue').text
                 }
             end
-            video.update!(transcription: transcript, status: :transcription_scraped)
+            video.update!(transcription: transcript, status: :transcription_scraped_new)
         else
             video.update!(status: :no_transcript)
         end
