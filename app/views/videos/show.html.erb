@@ -7,7 +7,7 @@
         </div>
         <h1><%= link_to @video.channel.name, @video.channel.url %> </h1>
     </div>
-    <iframe width="560" height="315" src="<%= @video.embed_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="<%= @video.embed_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <div class="container my-2 transcription-container">
         <h2 class="video-name"><%= @video.name %></h2>
