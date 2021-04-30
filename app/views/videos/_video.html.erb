@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-4">
             <%= link_to video.channel.url, target: :blank do  %>
-                <%= image_tag video.channel.logo_url %>
+                <%= image_tag video.channel.logo_url, width: 88, height: 88 %>
                 <p class="mt-2">
                     <%= video.channel.name %>
                 </p>
